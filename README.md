@@ -11,3 +11,5 @@ A **Django-powered blog website** with seamless **API integration**, enabling us
 ✅ Commenting system for user interactions  
 ✅ Database connectivity with **Supabase**  
 ✅ Deployment on **Render** 
+
+### ⭐ Happy Blogging! ⭐
