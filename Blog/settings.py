@@ -1,5 +1,5 @@
 from pathlib import Path
-import  environ,os,dj_database_url
+import  environ,os
 
 
 
