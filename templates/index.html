@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+    <link rel="icon" type="image/png" href="{% static 'posts/blog.png' %}">
+    <link rel="stylesheet" href="{% static 'posts/css/style.css' %}">
+    <script src="{% static 'posts/js/script.js' %}"></script>
+{% endblock %}
+
+{% block header %}
+<header>
+    <div class="nav-container">
+        <h1><a style="text-decoration: none; color: wheat;" href="{% url 'home' %}">C's Blogs</a></h1>
+
+        <form method="GET" action="{% url 'search' %}" class="search-form">
+            <input type="text" name="q" placeholder="Search blog posts..." value="{{ request.GET.q }}" class="search-input">
+            <button type="submit" class="search-btn">🔍</button>
+        </form>
+        <div class="auth-links" style="display: flex; align-items: center;">
+            <button id="darkModeToggle">🌙 Dark Mode</button>
+            {% if user.is_authenticated %}
+                <p class="name">{{ user.username }}</p>
+                <a href="{% url 'logout' %}" class="auth-btn">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="auth-btn">Login</a>
+                <a href="{% url 'register' %}" class="auth-btn">Register</a>
+            {% endif %}
+    {% if user.is_authenticated %}
+        <a href="addpost" class="addPost">Add Post</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="addPost">Add Post</a>
+    {% endif %}
+</div>
+</div>
+</header>
+{% endblock %}
+
+{% block content %}
+<main>
+    <section class="posts">
+        {% if posts %}
+        {% for post in posts reversed %}
+        <div class="divpost">
+            <h2 class="posttitle"><a href="post/{{ post.id }}">{{ post.title }}</a></h2>
+            <p class="postdate">Date: {{ post.created_on }}</p>
+            <!-- <p class="postbody">{{ post.body|truncatechars:30 }}</p> -->
+            <a href="post/{{ post.id }}" class="read-more">Read More</a>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div>
+        <p class= "no-results">🚀 No posts found. Try again after sometime😊! </p>
+        </div>
+        {% endif %}
+    </section>
+    {% if messages %}
+    <div id="message" style="color: white; background-color: red; padding: 10px; border-radius: 5px; font-weight: bold; text-align: center;">
+        {% for i in messages %}
+            {{ i }}<br>
+        {% endfor %}
+    </div>
+    <script>
+        setTimeout(function() {
+            var messageDiv = document.getElementById("message");
+            if (messageDiv) {
+                messageDiv.style.opacity = "0"; // Smooth fade-out
+                setTimeout(() => messageDiv.style.display = "none", 500); // Hide after fading out
+            }
+        }, 2000);
+    </script>
+    {% endif %}
+</main>
+{% endblock %}
+
+{% block footer %}
+<footer>
+    <p>&copy; 2025 C Blogs. All rights reserved.</p>
+</footer>
+{% endblock %}
