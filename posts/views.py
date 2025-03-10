@@ -11,6 +11,10 @@ from rest_framework import status
 from django.contrib.auth.decorators import login_required
 
 
+from django.http import JsonResponse
+
+def health_check(request):
+    return JsonResponse({"status": "ok"})
 
 class Detailview(APIView):
     def get(self, request, id):
