@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'posts/css/search.css' %}">
+<script src="{% static 'posts/js/script.js' %}"></script>
+{% endblock %}
+{% block content %}
+<div style="margin:10px 10px; padding:10px 10px"> <a class="btn" href="{% url 'home' %}">Home</a></div>
+<button id="darkModeToggle">🌙 Dark Mode</button>
+    <div class="search-container">
+        <h2 class="search-heading">Search Results for "<span class="query-text">{{ query }}</span>"</h2>
+        {% if posts %}
+            <div class="posts">
+                {% for post in posts %}
+                    <div class="divpost">
+                        <h2 class="posttitle">
+                            <a href="{% url 'singlepost' post.id %}">{{ post.title }}</a>
+                        </h2>
+                        <p class="postdate">📅 {{ post.created_on }}</p>
+                        <a href="{% url 'singlepost' post.id %}" class="read-more">Read More</a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-results">🚀 No posts found. Try searching for something else!</p>
+        {% endif %}
+    </div>
+{% endblock %}

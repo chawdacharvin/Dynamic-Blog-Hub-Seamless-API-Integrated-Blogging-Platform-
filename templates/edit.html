@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Form Container */
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            width: 90%;
+            max-width: 500px;
+            border: 1px solid #ddd;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Heading */
+        h1 {
+            color: #764ba2;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        /* Form Group */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        /* Input and Textarea */
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #bbb;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #fafafa;
+            transition: border 0.3s ease-in-out;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #764ba2;
+            outline: none;
+            background-color: white;
+        }
+
+        textarea {
+            height: 130px;
+            resize: vertical;
+        }
+
+        /* Buttons */
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        button, .cancel-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            border: none;
+        }
+
+        .save-btn {
+            background: linear-gradient(135deg, #764ba2, #667eea);
+            color: black;
+            margin-right: 10px;
+        }
+
+        .save-btn:hover {
+            background: linear-gradient(135deg, #5a3d8a, #5563c1);
+        }
+
+        .cancel-btn {
+            background: #ff6f61;
+            color: black;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cancel-btn:hover {
+            background: #ff3b30;
+        }
+
+        /* Message Box */
+        #message {
+            color: white;
+            background-color: red;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 500px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            input, textarea {
+                font-size: 0.95rem;
+            }
+
+            .btn-container {
+                flex-direction: column;
+            }
+
+            .save-btn {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Post</h1>
+        <form action="{% url 'home' %}" method="POST">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" value="{{ post.title }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="body">Body:</label>
+                <textarea id="body" name="body" required>{{ post.body }}</textarea>
+            </div>
+
+            <div class="btn-container">
+                <button type="submit" class="save-btn">Save Changes</button>
+                <button class="cancel-btn"><a href="{% url 'home' %}" ></a>Cancel</button>
+            </div>
+        </form>
+
+        {% if messages %}
+            <div id="message">
+                {% for i in messages %}
+                    {{ i }}<br>
+                {% endfor %}
+            </div>
+            <script>
+                setTimeout(function() {
+                    var messageDiv = document.getElementById("message");
+                    if (messageDiv) {
+                        messageDiv.style.opacity = "0"; // Smooth fade-out
+                        setTimeout(() => messageDiv.style.display = "none", 500);
+                    }
+                }, 2000);
+            </script>
+        {% endif %}
+    </div>
+</body>
+</html>
