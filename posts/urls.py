@@ -18,4 +18,5 @@ urlpatterns = [
     path('search/', views.search_posts, name="search"),
     path('api/blogs', BlogListView.as_view(), name="apiblog"),
     path('api/blogs/<int:id>/', Detailview.as_view(), name="apiblogdetail"),
+    path("healthcheck/", health_check, name="health_check"),
 ]
