@@ -1,0 +1,189 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Dark Mode Body */
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Authentication Container */
+.auth-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Dark Mode Authentication Container */
+.dark-mode .auth-container {
+    background-color: #1e1e1e;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Heading Styles */
+h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
+}
+
+/* Dark Mode Heading */
+.dark-mode h2 {
+    color: #f0f0f0;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Dark Mode Label */
+.dark-mode .form-group label {
+    color: #bbb;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s, background 0.3s, color 0.3s;
+}
+
+/* Dark Mode Input */
+.dark-mode .form-group input {
+    background: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #555;
+}
+
+.dark-mode .form-group input:focus {
+    border-color: #4a90e2;
+}
+
+/* Button Styles */
+.auth-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #0066cc;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Dark Mode Button */
+.dark-mode .auth-btn {
+    background-color: #4a90e2;
+}
+
+.auth-btn:hover {
+    background-color: #005bb5;
+}
+
+/* Dark Mode Button Hover */
+.dark-mode .auth-btn:hover {
+    background-color: #357abd;
+}
+
+/* Bottom Links */
+p {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Dark Mode Text */
+.dark-mode p {
+    color: #bbb;
+}
+
+p a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Dark Mode Links */
+.dark-mode p a {
+    color: #4a90e2;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Name Display */
+.name {
+    display: inline-block;
+    margin: 0;
+    font-size: larger;
+    vertical-align: middle;
+    transition: color 0.3s;
+}
+
+/* Dark Mode Name Display */
+.dark-mode .name {
+    color: #f0f0f0;
+}
+
+/* Dark Mode Toggle Button */
+#darkModeToggle {
+    background: #222;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#darkModeToggle:hover {
+    background: #444;
+}
+
+/* Dark Mode Toggle Button for Dark Mode */
+.dark-mode #darkModeToggle {
+    background: #fff;
+    color: #222;
+}
+
+.dark-mode #darkModeToggle:hover {
+    background: #ddd;
+}

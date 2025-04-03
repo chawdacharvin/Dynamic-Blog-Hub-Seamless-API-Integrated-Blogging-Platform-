@@ -1,0 +1,132 @@
+/* Search Results Page */
+.search-container {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #ffffff, #f5f5f5);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    margin: 30px auto;
+}
+
+.search-heading {
+    font-size: 2.2rem;
+    color: #764ba2;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.query-text {
+    font-weight: bold;
+    color: #ff6f61;
+}
+
+.no-results {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* Blog Posts Grid */
+.posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Blog Post Card */
+.divpost {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, background 0.4s ease, color 0.4s ease;
+    text-align: left;
+}
+
+.divpost:hover {
+    transform: scale(1.05);
+}
+
+/* Dark Mode Post */
+.dark-mode .divpost {
+    background: #242424;
+    color: #e0e0e0;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+/* Post Title */
+.posttitle a {
+    color: #764ba2;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.search-container{
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.posttitle a:hover {
+    text-decoration: underline;
+    color: #5a3d8a;
+}
+
+/* Dark Mode Post Title */
+.dark-mode .posttitle a {
+    color: #bb86fc;
+}
+
+/* Post Date */
+.postdate {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Read More Button */
+.read-more {
+    display: inline-block;
+    background: #764ba2;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    background: #5a3d8a;
+}
+
+/* Dark Mode Read More Button */
+.dark-mode .read-more {
+    background: #bb86fc;
+    color: #222;
+}
+
+.dark-mode .read-more:hover {
+    background: #9e6efb;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .search-heading {
+        font-size: 1.5rem;
+    }
+    .posts {
+        grid-template-columns: 1fr;
+    }
+}

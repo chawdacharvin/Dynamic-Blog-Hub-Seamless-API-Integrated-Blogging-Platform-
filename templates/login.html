@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | C Blogs</title>
+    <link rel="icon" type="image/png" href="{% static 'posts/blog.png' %}">
+    <script src="{% static 'posts/js/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'posts/css/auth.css' %}">
+</head>
+<body>
+    <div class="auth-container">
+        <h2>Login</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="auth-btn">Login</button>
+        </form>
+
+        <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+        
+        <!-- Google Sign-In Button -->
+        <div class="social-login">
+            <a href="{% url 'social:begin' 'google-oauth2' %}" class="google-btn">
+                <img src="{% static 'posts/google-.webp' %}" alt="Google Logo" class="google-icon">
+                Sign in with Google
+            </a>
+        </div>
+
+        <p style="color: red;">
+            {% for i in messages %}
+                {{ i }}
+            {% endfor %}
+        </p>
+    </div>
+
+    <style>
+        .social-login {
+            margin-top: 20px;
+        }
+        .google-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #4285F4;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .google-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        .google-btn:hover {
+            background-color: #3367D6;
+        }
+    </style>
+</body>
+</html>

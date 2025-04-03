@@ -1,0 +1,280 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #181818;
+    color: #e0e0e0;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position:relative;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.4s ease;
+}
+
+/* Dark Mode Header */
+.dark-mode header {
+    background: linear-gradient(135deg, #222437, #3b3b5a);
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Navigation Links */
+.auth-links a,
+.auth-btn {
+    background: #ffffff33;
+    color: white;
+    padding: 10px 20px; /* Increased padding */
+    border-radius: 8px; /* Larger radius */
+    text-decoration: none;
+    transition: 0.3s;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem; /* Larger font size */
+}
+
+.auth-links a:hover,
+.auth-btn:hover {
+    background: white;
+    color: #764ba2;
+}
+
+/* Dark Mode Navigation */
+.dark-mode .auth-links a,
+.dark-mode .auth-btn {
+    background: #444;
+    color: #e0e0e0;
+}
+
+.dark-mode .auth-links a:hover,
+.dark-mode .auth-btn:hover {
+    background: #e0e0e0;
+    color: #222;
+}
+
+/* Add Post Button */
+.addPost {
+    background: #ff6f61;
+    color: white;   
+    padding: 15px 30px; /* Increased padding */
+    border-radius: 8px; /* Larger radius */
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 1.2rem; /* Larger font size */
+    margin-top: 10px; /* Added margin */
+}
+
+.addPost:hover {
+    background: #ff3b30;
+}
+
+/* Dark Mode Add Post Button */
+.dark-mode .addPost {
+    background: #e74c3c;
+    color: white;
+}
+
+.dark-mode .addPost:hover {
+    background: #c0392b;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 80px 20px 20px; /* Adjusted top padding to prevent header overlap */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Posts Section */
+.posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Blog Post Styling */
+.divpost {
+    background: white;
+    padding: 30px; /* Increased padding */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, background 0.4s ease, color 0.4s ease;
+    text-align: left;
+}
+
+.divpost:hover {
+    transform: scale(1.05);
+}
+
+/* Dark Mode Blog Post */
+.dark-mode .divpost {
+    background: #242424;
+    color: #e0e0e0;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+/* Post Title */
+.posttitle {
+    color: #764ba2;
+    text-decoration: none;
+    font-size: 1.8rem; /* Larger font size */
+    margin-bottom: 10px;
+}
+
+.posttitle:hover {
+    text-decoration: underline;
+}
+
+/* Dark Mode Post Title */
+.dark-mode .posttitle {
+    color: #bb86fc;
+}
+
+/* Post Date */
+.postdate {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Post Body */
+.postbody {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* Read More Button */
+.read-more {
+    display: inline-block;
+    background: #764ba2;
+    color: white;
+    padding: 12px 24px; /* Increased padding */
+    border-radius: 8px; /* Larger radius */
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 1rem; /* Larger font size */
+}
+
+.read-more:hover {
+    background: #5a3d8a;
+}
+
+/* Dark Mode Read More Button */
+.dark-mode .read-more {
+    background: #bb86fc;
+    color: #222;
+}
+
+.dark-mode .read-more:hover {
+    background: #9e6efb;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+/* Dark Mode Footer */
+.dark-mode footer {
+    background: #121212;
+    color: #bbb;
+}
+
+/* Dark Mode Toggle Button */
+#darkModeToggle {
+    background: #222;
+    color: #fff;
+    border: none;
+    padding: 10px 20px; /* Increased padding */
+    font-size: 1rem; /* Larger font size */
+    cursor: pointer;
+    border-radius: 8px; /* Larger radius */
+    transition: 0.3s;
+}
+
+#darkModeToggle:hover {
+    background: #444;
+}
+
+/* Dark Mode Toggle Button for Dark Mode */
+.dark-mode #darkModeToggle {
+    background: #fff;
+    color: #222;
+}
+
+.dark-mode #darkModeToggle:hover {
+    background: #ddd;
+}
+/* Search bar styling */
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: auto;
+}
+
+.search-input {
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-btn {
+    background-color: #ffcc00;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.search-btn:hover {
+    background-color: #ffaa00;
+}
+
+.no-results {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    color: #666;
+    align-self: center;
+    vertical-align: middle;
+    width: 570px;
+}

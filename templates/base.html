@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{title}}</title>
+    <link rel="icon" type="image/png" href="{% static '\posts\blog.png' %}">
+    {% block style  %}
+    {% endblock %}
+</head>
+<body>
+<header>
+
+    {% block header %}
+    {% endblock %}
+
+</header>
+
+<main>    
+    {% block content %}
+    {% endblock %}
+</main>
+
+    <footer>
+    {% block  footer %}
+    {% endblock %}
+</footer>
+    
+</body>
+</html>

@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="{% static '\posts\blog.png' %}">
+  <style>
+    /* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply a background and center the form on the page */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Form container with white background and shadow for focus */
+.form-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Hover effect on form container */
+.form-container:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Header styling */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: bold;
+    color: #0066cc;
+}
+
+/* Form group for better spacing */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Label styles */
+.form-group label {
+    display: block;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+/* Input and textarea fields with focus styles */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focused input fields have a blue border */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #0066cc;
+    box-shadow: 0 0 8px rgba(0, 102, 204, 0.3);
+}
+
+/* Resizing of the textarea */
+textarea {
+    resize:vertical;
+    overflow:auto;
+    height:500px;
+}
+
+/* Button styling */
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background-color: #0066cc;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for the submit button */
+.submit-btn:hover {
+    background-color: #005bb5;
+    transform: translateY(-2px);
+}
+
+/* Disabled state for the button */
+.submit-btn:disabled {
+    background-color: #b0b0b0;
+    cursor: not-allowed;
+}
+
+/* Add some small spacing at the bottom of the form */
+.form-container p {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    margin-top: 20px;
+}
+  </style>
+    <title>Add New Post</title>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Add New Post</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Post Title</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="body">Post Body</label>
+                <textarea id="body" name="body" rows="50" cols="100" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Submit Post</button>
+        </form>
+    </div>
+</body>
+</html>
