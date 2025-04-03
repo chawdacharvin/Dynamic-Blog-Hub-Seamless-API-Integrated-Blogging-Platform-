@@ -1,21 +1,38 @@
-# Django
-*.log
-*.pot
-*.pyc
-__pycache__/
-db.sqlite3
-media/
-staticfiles/
-
-# Environment & Secrets
+# Environment files
 .env
-.env.*
 
-# IDE & OS Files
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Byte-compiled files
+*.pyc
+
+# Database
+db.sqlite3
+
+# Django logs
+*.log
+
+# Static and media files
+/staticfiles/
+/media/
+
+# Virtual environments
+venv/
+env/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
 .vscode/
 .idea/
-.DS_Store
 
-# Python Packages
-venv/
-__pycache__/
+# Deployment files (Optional if managed elsewhere)
+build.sh
+
+# Ignore Heroku files if not needed
+Procfile
